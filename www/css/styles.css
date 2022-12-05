@@ -1,4 +1,7 @@
 /*  your custom styles here  */
+ /* https://coolors.co/palette/fec5bb-fcd5ce-fae1dd-f8edeb-e8e8e4-d8e2dc-ece4db-ffe5d9-ffd7ba-fec89a */
+
+
 #stopWatch {
     display: none;
 }
@@ -11,8 +14,11 @@
     background: rgb(134, 198, 170);
 }
 
-h2 {
-    text-align: center;
+
+/* GENERAL STUFF */
+
+.toolbar-inner {
+    background-color: rgb(255, 229, 217);
 }
 
 h3 {
@@ -21,6 +27,7 @@ h3 {
 
 .material-symbols-outlined {
     color: black;
+    font-size: 30px;
 }
 
 .link {
@@ -29,42 +36,116 @@ h3 {
     align-items: center;
 }
 
-.container {
-    height: 200px;
-    width: 250px;
-    position: absolute;
+/* HOME PAGE */
+
+.page {
+    background-color:rgb(255, 229, 217);
 }
 
+.welcome {
+    margin-top: 25%;
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* float animation from here: https://codepen.io/LuizLazaro/pen/mEvZLx */
+
+@keyframes float {
+    to {
+        top: 0;
+    } from {
+        top: 35px;
+    }
+}
+
+@keyframes float2 {
+    to {
+        top: 0;
+    } from {
+        top: 43px;
+    }
+}
+
+@keyframes float3 {
+    to {
+        top: 0;
+    } from {
+        top: 38px;
+    }
+}
+
+
+
 .bubble1 {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background-color: rgb(216, 226, 220);
+    position: absolute;
+    margin-left: 35%;
+    margin-top: 15%;
+    animation-name: float;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+}
+
+.bubble2 {
     width: 75px;
     height: 75px;
     border-radius: 50%;
-    fill: aquamarine;
+    background-color: rgb(216, 226, 220);
     position: absolute;
-    margin: auto;
-}
-
-/* .bubble2 {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    fill: rgb(71, 102, 92);
+    margin-left: 27%;
+    margin-top: 50%;
+    animation-name: float2;
+    animation-duration: 2.8s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
 }
 
 .bubble3 {
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    fill: rgb(15, 53, 40);
-} */
+    background-color: rgb(216, 226, 220);
+    margin-left: 50%;
+    margin-top: 60%;
+    animation-name: float3;
+    animation-duration: 2.7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+}
 
 
-.outer-ring {
-    width: 250px;
-    height: 250px;
+
+/* PAGE 2 */
+
+.walk-text {
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+/* PAGE 3 */
+
+.box {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
-    background-color:rgb(22, 35, 29);
-    /* border: 10px rgb(27, 35, 32); */
+    background-color:rgb(254, 197, 187);
     position: absolute;
     left: 0;
     right: 0;
@@ -75,3 +156,24 @@ h3 {
     max-height: 100%;
     overflow: auto;
 }
+
+.outer-ring {
+    display: inline-block;
+    width: 325px;
+    height: 325px;
+    border-radius: 50%;
+    border-color:rgb(254, 200, 154);
+    border-width: 5px;
+    border-style: solid;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+}
+
+

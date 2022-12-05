@@ -39,6 +39,21 @@ $$(document).on('page:init', '.page[data-name="page2"]', function () {
         map: map
     })
 
+    new google.maps.Marker({
+        position: {lat: 49.6775518, lng: -112.8603756 },
+        map: map
+    })
+    new google.maps.Marker({
+        position: {lat: 49.6775395, lng: -112.8589969 },
+        map: map
+    })
+
+    // maybe use this for the geolocation trigger? https://stackoverflow.com/questions/13194623/get-location-when-pages-loads
+    //you need to have page 3 open when the user walks within the coordinates
+    //PLANTS: 49.6775419, -112.8608828 / 49.6773438, -112.8607528 / 49.6778070, -112.8597402 / 49.6776284, -112.8596564 
+    // CHAIRS: 49.6776046, -112.8592380 / 49.6774562, -112.8591515 / 49.6776219, -112.8589265 / 49.6775382, -112.8588551
+    // 
+
 var watchID;
 
     $("#startWatch").on('click', function() {
@@ -76,7 +91,7 @@ function onDeviceReady() {
     
     navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geo0pts);
 
-}
+
 function geoSuccess(position) {
     console.log(position);
     lat = position.coords.latitude //you don't need the "var" at the front here b/c it's been declared globally above
@@ -94,3 +109,47 @@ function geoSuccess(position) {
         alert(message.message)
     }
 
+
+
+
+
+    //this section is for the movement of the breathe circle
+    $$(document).on('page:init', '.page[data-name="page3"]', function () {
+        if(window.DeviceOrientationEvent){
+            window.addEventListener("deviceorientation", handleMotion)
+        }else {
+            alert("sorry your browser does not support this")
+        }
+        
+        var movebox = 0;
+
+        function handleMotion(event){
+            //console.log(event)
+            var z = event.alpha;
+            var x = event.beta;
+            var y = event.gamma;
+
+            // $("#z").text("z: " + z)
+            // $("#x").text("x: " + x)
+            // $("#y").text("y: " + y)
+
+            movebox += x/2
+
+            $(".box").css("transform", "rotateZ(" + z + "deg) rotateX(" + y + "deg) rotateY(" + x + "deg) translateX(" + movebox + "px)")
+
+            Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+                return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+            }
+            
+            var r = z.map(0, 360, 0, 255)
+            var g = x.map(-180, 180, 0, 255)
+            var b = y.map(-90, 90, 0, 255)
+            
+            $("body").css("background", "rgb(" + r + ", " + g + ", " + b + ")")
+
+        
+        }
+
+    })
+
+}

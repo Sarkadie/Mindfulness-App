@@ -1,0 +1,77 @@
+/*  your custom styles here  */
+#stopWatch {
+    display: none;
+}
+
+#map {
+    height: 100%;
+}
+
+#app {
+    background: rgb(134, 198, 170);
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+.material-symbols-outlined {
+    color: black;
+}
+
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    height: 200px;
+    width: 250px;
+    position: absolute;
+}
+
+.bubble1 {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    fill: aquamarine;
+    position: absolute;
+    margin: auto;
+}
+
+/* .bubble2 {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    fill: rgb(71, 102, 92);
+}
+
+.bubble3 {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    fill: rgb(15, 53, 40);
+} */
+
+
+.outer-ring {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color:rgb(22, 35, 29);
+    /* border: 10px rgb(27, 35, 32); */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+}

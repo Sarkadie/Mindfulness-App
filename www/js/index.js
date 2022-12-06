@@ -121,7 +121,9 @@ function geoSuccess(position) {
             alert("sorry your browser does not support this")
         }
         
-        var movebox = 0;
+        var moveboxOne = 0;
+        var moveboxTwo = 0;
+        var moveboxThree = 0;
 
         function handleMotion(event){
             //console.log(event)
@@ -133,9 +135,36 @@ function geoSuccess(position) {
             // $("#x").text("x: " + x)
             // $("#y").text("y: " + y)
 
-            movebox += x/2
+// z: 270, x: 0.6, y: -0.1
+// x MAX: 1.3, MIN: -1.3
+//
 
-            $(".box").css("transform", "rotateZ(" + z + "deg) rotateX(" + y + "deg) rotateY(" + x + "deg) translateX(" + movebox + "px)")
+            // so this is supposed to be the boundary, it TECHNICALLY works the way it's written, but it's not quite what I had envisioned. It's supposed to stop moving when it hits the wall of the outer circle, but instead I was able to get it to stop moving when the phone is tilted to a certain degree. It's a workaround for now.
+
+
+            if ( x > 4 || x < -4 ) {
+                moveboxOne = moveboxOne
+            } 
+            else {
+                moveboxOne += x/2
+            }
+
+            if ( y > 4 || y < -4 ) {
+                moveboxTwo = moveboxTwo
+            } 
+            else {
+                moveboxTwo += y/2
+            }
+
+            if ( z > 4 || z < -4 ) {
+                moveboxThree = moveboxThree
+            } 
+            else {
+                moveboxThree += z/2
+            }
+
+
+            $(".box").css("transform", "translateZ(" + moveboxThree + "px) translateX(" + moveboxOne + "px) translateY(" + moveboxTwo + "px)")
 
             Number.prototype.map = function (in_min, in_max, out_min, out_max) {
                 return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;

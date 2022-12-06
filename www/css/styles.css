@@ -36,6 +36,8 @@ h3 {
     align-items: center;
 }
 
+
+
 /* HOME PAGE */
 
 .page {
@@ -76,7 +78,14 @@ h3 {
     }
 }
 
+@keyframes float4 {
+    to {
+        top: 0;
+    } from {
+        top: 38px;
+    }
 
+}
 
 .bubble1 {
     width: 160px;
@@ -108,7 +117,7 @@ h3 {
     animation-timing-function: ease;
 }
 
-.bubble3 {
+/* .bubble3 {
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -120,7 +129,24 @@ h3 {
     animation-iteration-count: infinite;
     animation-direction: alternate;
     animation-timing-function: ease;
+} */
+
+.bubble4 {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: rgb(216, 226, 220);
+    margin-left: 50%;
+    margin-top: 60%;
+    animation-name: float4;
+    animation-duration: 2.7s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease;
 }
+
+
+
 
 
 
@@ -141,6 +167,9 @@ h3 {
 
 /* PAGE 3 */
 
+/* breathing animation: https://codepen.io/AnyaCraig/pen/YNraBz */
+
+
 .box {
     width: 300px;
     height: 300px;
@@ -155,7 +184,24 @@ h3 {
     max-width: 100%;
     max-height: 100%;
     overflow: auto;
+
+    animation-duration: 6s;
+    animation-name: breathe;
+    animation-iteration-count: infinite;
 }
+
+@keyframes breathe {
+    0% {
+        transform: scale(0.1);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.1);
+    }
+}
+
 
 .outer-ring {
     display: inline-block;
